@@ -1,27 +1,23 @@
 #include "main.h"
 /**
  * print_last_digit - Entry point
- * _abs - Absolute number
  * @n: input
  * Return: Always 0 (Success)
  */
 
-int _abs(int n)
+int print_last_digit(int n)
 {
+	int x;
 	if (n < 0)
 	{
-		return (n * -1);
+		x = (n * -1) % 10;
+		_putchar(x + 48);
+		return (x);
 	}
 	else
 	{
-		return (n);
+		x = n % 10;
+		_putchar(x + 48);
+		return (x);
 	}
-}
-
-int print_last_digit(int n)
-{
-	int x = _abs(n) % 10;
-
-	_putchar(x + 48);
-	return (x);
 }
