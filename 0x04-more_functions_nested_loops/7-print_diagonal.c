@@ -1,8 +1,8 @@
 #include "main.h"
 /**
- *
- *
- *
+ * print_diagonal - prints diagonal
+ * @n: n
+ * Return: doesn't return
  */
 void print_diagonal(int n)
 {
