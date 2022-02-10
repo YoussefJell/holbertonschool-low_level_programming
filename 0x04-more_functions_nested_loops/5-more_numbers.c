@@ -1,6 +1,6 @@
 #include "main.h"
 /**
- * print_most_numbers - prints numbers
+ * more_numbers - prints numbers
  *
  * Return: void doesn't return
  */
@@ -16,12 +16,8 @@ void more_numbers(void)
 			if (i > 9)
 			{
 				_putchar(i / 10 + '0');
-				_putchar(i % 10 + '0');
 			}
-			else
-			{
-				_putchar(i + '0');
-			}
+			_putchar(i % 10 + '0');
 		}
 		_putchar('\n');
 	}
