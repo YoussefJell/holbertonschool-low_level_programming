@@ -1,6 +1,7 @@
 #include "main.h"
 /**
- * _strcpy - copies from src to dest
+ * string_toupper - makes string uppercase
+ * @c: input
  * Return: (pointer to dest)
  */
 char *string_toupper(char *c)

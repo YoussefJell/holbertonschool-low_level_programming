@@ -1,6 +1,9 @@
 #include "main.h"
 /**
- * _strcpy - copies from src to dest
+ * _strncpy - copies from src to dest
+ * @dest: destination
+ * @src: source
+ * @n: number of arrays
  * Return: (pointer to dest)
  */
 char *_strncpy(char *dest, char *src, int n)
