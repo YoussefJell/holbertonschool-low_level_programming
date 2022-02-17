@@ -15,9 +15,9 @@ char *cap_string(char *c)
 	{
 		for (j = 0; spr[j]; j++)
 		{
-			if (c[i] >= 97 && c[i] <= 122)
+			if (c[i - 1] == spr[j])
 			{
-				if (c[i - 1] == spr[j])
+				if (c[i] >= 97 && c[i] <= 122)
 				{
 					c[i] = c[i] - 32;
 				}
