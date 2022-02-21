@@ -1,9 +1,9 @@
 #include "main.h"
 /**
- * _memcpy - fills memory with constant byte
- * @s: memory area
- * @n: bytes
- * @b: constant
+ * _memcpy - copies memory
+ * @dest: destination
+ * @n: decimal
+ * @src: source
  * Return: Pointer to memory area s
  */
 char *_memcpy(char *dest, char *src, unsigned int n)
