@@ -1,8 +1,10 @@
 #include "main.h"
 #include <stdio.h>
 /**
- * @brief
- *
+ * print_diagsums - prints sum of diagonal in square matrix
+ * @a: matrix
+ * @size: size
+ * Return: void, none
  */
 void print_diagsums(int *a, int size)
 {
