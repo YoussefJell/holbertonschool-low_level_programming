@@ -18,7 +18,7 @@ char *_strstr(char *haystack, char *needle)
 			pattern++;
 		}
 		if (!*pattern)
-			return Begin;
+			return (Begin);
 
 		haystack = Begin + 1;
 	}
