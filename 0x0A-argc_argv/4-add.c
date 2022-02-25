@@ -18,7 +18,7 @@ int main(int argc, char *argv[])
 	}
 	else
 	{
-		for (i = 1; i < argc; i++)
+		for (i = 0; i < argc; i++)
 		{
 			if ((*argv[i] >= 65 && *argv[i] <= 90) ||
 				(*argv[i] >= 97 && *argv[i] <= 122))
