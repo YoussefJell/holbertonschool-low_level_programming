@@ -16,22 +16,18 @@ int main(int argc, char *argv[])
 	{
 		printf("0\n");
 	}
-	else
+
+	for (i = 1; i < argc; i++)
 	{
-		for (i = 0; i < argc; i++)
+		if (isdigit(*argv[i]))
+			sum += atoi(argv[i]);
+		else
 		{
-			if ((*argv[i] >= 65 && *argv[i] <= 90) ||
-				(*argv[i] >= 97 && *argv[i] <= 122))
-			{
-				printf("Error\n");
-				return (1);
-			}
-			else
-			{
-				sum += atoi(argv[i]);
-			}
+			printf("Error\n");
+			return (1);
 		}
-		printf("%d\n", sum);
 	}
+	printf("%d\n", sum);
+
 	return (0);
 }
