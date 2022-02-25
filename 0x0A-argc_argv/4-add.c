@@ -17,20 +17,18 @@ int main(int argc, char *argv[])
 		printf("0\n");
 	}
 
-	for (i = 0; i < argc; i++)
 	{
-		if ((*argv[i] >= 65 && *argv[i] <= 90) ||
-			(*argv[i] >= 97 && *argv[i] <= 122))
+		for (i = 1; i < argc; i++)
 		{
-			printf("Error\n");
-			return (1);
+			if (isdigit(*argv[i]))
+				sum += atoi(argv[i]);
+			else
+			{
+				printf("Error\n");
+				return (1);
+			}
 		}
-		else
-		{
-			sum += atoi(argv[i]);
-		}
+		printf("%d\n", sum);
 	}
-	printf("%d\n", sum);
-
 	return (0);
 }
