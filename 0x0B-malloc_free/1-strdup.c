@@ -5,6 +5,7 @@
  * @str: string to be duplicated
  * Return: array
  */
+
 char *_strdup(char *str)
 {
 	int i, strlenstr;
@@ -15,13 +16,10 @@ char *_strdup(char *str)
 
 	p = (char *)malloc(sizeof(char) * strlenstr);
 
-	if (str == NULL)
+	if (p == NULL || str == NULL)
 		return (NULL);
 
-	if (p == NULL)
-		return (NULL);
-
-	for (i = 0; i < strlenstr; i++)
+	for (i = 0; i <= strlenstr; i++)
 	{
 		p[i] = str[i];
 	}
