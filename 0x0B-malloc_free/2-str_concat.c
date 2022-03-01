@@ -1,8 +1,9 @@
 #include "main.h"
 #include <stdlib.h>
 /**
- * _strdup - duplicates string
- * @str: string to be duplicated
+ * str_concat - concatenates string
+ * @s1: string 1
+ * @s2: string 2
  * Return: array
  */
 
