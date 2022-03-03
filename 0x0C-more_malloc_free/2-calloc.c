@@ -1,28 +1,28 @@
 #include "main.h"
 #include <stdlib.h>
 /**
- * _calloc - allocates array with size
- * @nmemb: elements
- * @size: size of array
- * Return: void doesn't return
+ * _calloc - check the code
+ * @nmemb: parameter
+ * @size: parameter
+ * Return: Always 0.
  */
 void *_calloc(unsigned int nmemb, unsigned int size)
 {
-	int *p;
+	unsigned int *ptr;
 	unsigned int i;
 
 	if (nmemb == 0 || size == 0)
 	{
 		return (NULL);
 	}
-	p = malloc(sizeof(unsigned int) * nmemb * size);
-	if (p == NULL)
+	ptr = malloc(sizeof(unsigned int) * size * nmemb);
+	if (ptr == NULL)
 	{
 		return (NULL);
 	}
 	for (i = 0; i < nmemb; i++)
 	{
-		p[i] = 0;
+		ptr[i] = 0;
 	}
-	return (p);
+	return (ptr);
 }
