@@ -18,12 +18,11 @@ int (*get_op_func(char *s))(int, int)
 	int i;
 
 	i = 0;
-	while (i++ && i < 7)
+	while (ops != NULL)
 	{
 		if (*s == ops[i].op[0])
 			return (ops[i].f);
-		break;
+		i++;
 	}
-	printf("Error\n");
 	return (NULL);
 }
