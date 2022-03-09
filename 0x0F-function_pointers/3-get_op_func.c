@@ -22,8 +22,6 @@ int (*get_op_func(char *s))(int, int)
 	{
 		if (*s == ops[i].op[0])
 			return (ops[i].f);
-		break;
 	}
-	printf("Error\n");
 	return (NULL);
 }
