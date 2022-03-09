@@ -1,0 +1,29 @@
+#include <stdlib.h>
+#include <stdio.h>
+#include "3-calc.h"
+/**
+ * get_op_func - Get the op func object
+ * @s: char
+ * Return: int(*)(int, int)
+ */
+int (*get_op_func(char *s))(int, int)
+{
+	op_t ops[] = {
+		{"+", op_add},
+		{"-", op_sub},
+		{"*", op_mul},
+		{"/", op_div},
+		{"%", op_mod},
+		{NULL, NULL}};
+	int i;
+
+	i = 0;
+	while (i++ && i < 7)
+	{
+		if (*s == ops[i].op[0])
+			return (ops[i].f);
+		break;
+	}
+	printf("Error\n");
+	return (NULL);
+}
