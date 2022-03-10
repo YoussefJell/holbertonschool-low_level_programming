@@ -36,7 +36,12 @@ void print_all(const char *const format, ...)
 	va_end(args);
 	printf("\n");
 }
-
+/**
+ * print_string - prints a string
+ * @separator: separator
+ * @args: list of variadic args
+ * Return: void
+ */
 void print_string(char *separator, va_list args)
 {
 	char *arg = va_arg(args, char *);
@@ -48,17 +53,32 @@ void print_string(char *separator, va_list args)
 	}
 	printf("%s%s", separator, arg);
 }
-
+/**
+ * print_char - prints a character
+ * @separator: separator
+ * @args: list of variadic args
+ * Return: void
+ */
 void print_char(char *separator, va_list args)
 {
 	printf("%s%c", separator, va_arg(args, int));
 }
-
+/**
+ * print_int - prints an integer
+ * @separator: separator
+ * @args: list of variadic args
+ * Return: void
+ */
 void print_int(char *separator, va_list args)
 {
 	printf("%s%i", separator, va_arg(args, int));
 }
-
+/**
+ * print_float - prints a float
+ * @separator: separator
+ * @args: list of variadic args
+ * Return: void
+ */
 void print_float(char *separator, va_list args)
 {
 	printf("%s%f", separator, va_arg(args, double));
