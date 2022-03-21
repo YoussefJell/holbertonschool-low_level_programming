@@ -5,7 +5,10 @@
  */
 void free_listint(listint_t *head)
 {
-	listint_t *ptr = head;
+	listint_t *ptr;
+
+	if (head != NULL)
+		ptr = head;
 
 	while (ptr->next != NULL)
 	{
