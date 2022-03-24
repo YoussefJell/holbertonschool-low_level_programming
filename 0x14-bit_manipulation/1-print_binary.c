@@ -18,10 +18,10 @@ void print_rev(char *s)
 }
 
 /**
- * binary_to_uint - binary to unsigned int convertor
+ * print_binary - Print binary
  *
- * @b: char array of 0's and 1's
- * Return: 0 or unsigned int number
+ * @n: unsigned long int
+ * Return: void
  */
 void print_binary(unsigned long int n)
 {
