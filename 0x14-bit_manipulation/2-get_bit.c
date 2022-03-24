@@ -7,9 +7,10 @@
  */
 int get_bit(unsigned long int n, unsigned int index)
 {
-	int bitStatus = -1;
+	int mask = 1 << index;
 
-	bitStatus = (n >> index) & 1;
-
-	return (bitStatus);
+	if (n & mask)
+		return (1);
+	else
+		return (0);
 }
