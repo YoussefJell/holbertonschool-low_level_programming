@@ -1,9 +1,8 @@
 #include "main.h"
 /**
- * binary_to_uint - binary to unsigned int convertor
- *
- * @b: char array of 0's and 1's
- * Return: 0 or unsigned int number
+ * print_binary - prints binary
+ * @n: unsigned long int input
+ * Return: void
  */
 void print_binary(unsigned long int n)
 {
@@ -12,12 +11,7 @@ void print_binary(unsigned long int n)
 		_putchar('0');
 		return;
 	}
-	if (n == 1)
-	{
-		_putchar('1');
-		return;
-	}
-	while (n > 0)
+	while (n)
 	{
 		_putchar((n & 1) + '0');
 		n >>= 1;
