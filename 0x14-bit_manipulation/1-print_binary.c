@@ -18,7 +18,7 @@ void _fill(unsigned long int n)
 		_putchar('0');
 }
 /**
- * print_binary - prints binary
+ * print_binary - prints binary from decimal
  * @n: unsigned long int input
  * Return: void
  */
