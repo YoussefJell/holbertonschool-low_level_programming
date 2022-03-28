@@ -7,7 +7,7 @@
  */
 int main(int argc, char *argv[])
 {
-	int fDfrom, fDto, sZ, closeCheck = 0;
+	int fDfrom, fDto, sZ;
 	char buff[1024];
 
 	if (argc != 3)
