@@ -23,12 +23,12 @@ ssize_t read_textfile(const char *filename, size_t letters)
 
 	buf[letters] = '\0';
 
-	checkWrite = write(1, buf, letters);
+	checkWrite = write(fD, buf, letters);
 
 	if (checkWrite == -1)
 		return (0);
 
 	close(fD);
 
-	return (sZ);
+	return (checkWrite);
 }
