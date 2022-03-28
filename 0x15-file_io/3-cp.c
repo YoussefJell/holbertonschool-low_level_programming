@@ -35,16 +35,16 @@ void cpy(const char *source, const char *dest)
 	fDto = open(dest, O_CREAT | O_WRONLY | O_TRUNC, 0664);
 	while ((sZ = read(fDfrom, buf, 1024)) > 0)
 	{
-		if (sZ == -1)
-		{
-			dprintf(STDERR_FILENO, "Error: Can't read from file %s\n", source);
-			exit(98);
-		}
 		if (write(fDto, buf, sZ) != sZ || fDto == -1)
 		{
 			dprintf(STDERR_FILENO, "Error: Can't write to %s\n", dest);
 			exit(99);
 		}
+	}
+	if (sZ == -1)
+	{
+		dprintf(STDERR_FILENO, "Error: Can't read from file %s\n", source);
+		exit(98);
 	}
 	if (close(fDto) == -1)
 	{
