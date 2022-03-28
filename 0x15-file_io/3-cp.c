@@ -22,9 +22,9 @@ int main(int argc, char *argv[])
 		dprintf(STDERR_FILENO, "Error: Can't read from file %s\n", argv[1]);
 		exit(98);
 	}
-	while ((sZ = read(fDfrom, buff, sizeof(buff) - 1)) > 0)
+	while ((sZ = read(fDfrom, buff, sizeof(buff))) > 0)
 	{
-		if (write(fDto, buff, sZ))
+		if (write(fDto, buff, sZ) != sZ || fDto == -1)
 		{
 			dprintf(STDERR_FILENO, "Error: Can't write to %s\n", argv[1]);
 			exit(99);
