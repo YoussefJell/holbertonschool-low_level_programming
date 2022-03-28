@@ -1,4 +1,5 @@
 #include "main.h"
+void cpy(const char *source, const char *dest);
 /**
  * main - copies from file to file
  * @argc: argument count
@@ -7,30 +8,44 @@
  */
 int main(int argc, char *argv[])
 {
-	int fDfrom, fDto, sZ;
-	char buff[1024];
-
 	if (argc != 3)
 	{
 		dprintf(STDERR_FILENO, "Usage: cp file_from file_to\n");
 		exit(97);
 	}
-	fDto = open(argv[2], O_CREAT | O_WRONLY | O_TRUNC, 0664);
-	fDfrom = open(argv[1], O_RDONLY);
-	if (fDfrom == -1 || argv[1] == NULL)
+	cpy(argv[1], argv[2]);
+	return (0);
+}
+/**
+ * cpy - copy from source to dest
+ * @source: argv[1]
+ * @dest: argv[2]
+ */
+void cpy(const char *source, const char *dest)
+{
+	int fDfrom, fDto, sZ;
+	char buf[1024];
+
+	fDfrom = open(source, O_RDONLY);
+	if (fDfrom == -1 || source == NULL)
 	{
-		dprintf(STDERR_FILENO, "Error: Can't read from file %s\n", argv[1]);
+		dprintf(STDERR_FILENO, "Error: Can't read from file %s\n", source);
 		exit(98);
 	}
-	while ((sZ = read(fDfrom, buff, sizeof(buff))) > 0)
+	fDto = open(dest, O_CREAT | O_WRONLY | O_TRUNC, 0664);
+	while ((sZ = read(fDfrom, buf, 1024)) > 0)
 	{
-		if (write(fDto, buff, sZ) != sZ || fDto == -1)
+		if (write(fDto, buf, sZ) != sZ || fDto == -1)
 		{
-			dprintf(STDERR_FILENO, "Error: Can't write to %s\n", argv[1]);
+			if (sZ == -1)
+			{
+				dprintf(STDERR_FILENO, "Error: Can't read from file %s\n", source);
+				exit(98);
+			}
+			dprintf(STDERR_FILENO, "Error: Can't write to %s\n", dest);
 			exit(99);
 		}
 	}
-
 	if (close(fDto) == -1)
 	{
 		dprintf(STDERR_FILENO, "Error: Can't close fd %d\n", fDto);
@@ -41,5 +56,4 @@ int main(int argc, char *argv[])
 		dprintf(STDERR_FILENO, "Error: Can't close fd %d\n", fDfrom);
 		exit(100);
 	}
-	return (0);
 }
