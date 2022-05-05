@@ -15,7 +15,7 @@ dlistint_t *insert_dnodeint_at_index(dlistint_t **h, unsigned int idx, int n)
 	if (!h || !*h)
 		return (NULL);
 	len = dlistint_len(*h);
-	if (idx > len + 1)
+	if (idx > len)
 		return (NULL);
 
 	if (*h == NULL && idx == 0)
@@ -30,7 +30,6 @@ dlistint_t *insert_dnodeint_at_index(dlistint_t **h, unsigned int idx, int n)
 	{
 		if (i == idx - 1)
 			break;
-
 		ptr = ptr->next;
 		i++;
 	}
@@ -48,7 +47,6 @@ dlistint_t *insert_dnodeint_at_index(dlistint_t **h, unsigned int idx, int n)
 
 	return (newNode);
 }
-
 /**
  * dlistint_len - lenght of Doubly linked list
  * @h: head of list
