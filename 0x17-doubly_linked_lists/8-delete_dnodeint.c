@@ -7,25 +7,32 @@
  */
 int delete_dnodeint_at_index(dlistint_t **head, unsigned int index)
 {
-	dlistint_t *tmp = NULL, *ptr;
-	unsigned int i = 0;
+	dlistint_t *tmp = NULL, *ptr = NULL;
+	unsigned int i = 0, len;
 
 	if (!head || !*head)
 		return (-1);
 
-	ptr = (*head);
+	len = dlistint_len(*head);
+	if (index == len - 1)
+	{
+		delete_last(head);
+		return (1);
+	}
 	if (index == 0)
 	{
 		delete_first(head);
+		return (1);
 	}
+	ptr = (*head);
 	tmp = *head;
 	while (tmp)
 	{
-		if (i == index - 1)
+		if (i == index)
 		{
 			ptr = tmp;
-			tmp->next->prev = ptr;
-			tmp->next = ptr->next->next;
+			tmp->prev->next = tmp->next;
+			tmp->next->prev = tmp->prev;
 			free(ptr);
 			return (1);
 		}
@@ -55,4 +62,39 @@ void delete_first(dlistint_t **head)
 	}
 
 	free(tmp);
+}
+/**
+ * delete_last - deletes first node
+ * @head: head node
+ */
+void delete_last(dlistint_t **head)
+{
+	dlistint_t *ptr = *head;
+
+	while (ptr->next != NULL)
+	{
+		ptr = ptr->next;
+	}
+	ptr->prev->next = NULL;
+	free(ptr);
+}
+/**
+ * dlistint_len - lenght of Doubly linked list
+ * @h: head of list
+ * Return: Number of elements
+ */
+size_t dlistint_len(const dlistint_t *h)
+{
+	const dlistint_t *ptr;
+	unsigned int count = 0;
+
+	if (h == NULL)
+		return (0);
+	ptr = h;
+	while (ptr != NULL)
+	{
+		count++;
+		ptr = ptr->next;
+	}
+	return (count);
 }
